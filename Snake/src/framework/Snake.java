@@ -1,11 +1,12 @@
 package framework;
 
 
-import com.sun.xml.internal.ws.addressing.model.ActionNotSupportedException;
-
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Handels position and movement of head, tail and body of snake
+ */
 public class Snake {
     Position head;
     Position tail;
@@ -15,7 +16,8 @@ public class Snake {
 
     /**
      * Create new snake of length 1
-     * @param head Initial position of head
+     *
+     * @param head      Initial position of head
      * @param direction Initial direction snake is facing
      */
     public Snake(Position head, Direction direction) {
@@ -31,7 +33,11 @@ public class Snake {
         return head;
     }
 
-    public void move(Direction dir){
+    public List<Position> getBody() {
+        return body;
+    }
+
+    public void move(Direction dir) {
         head = head.getPosition(dir);
     }
 }

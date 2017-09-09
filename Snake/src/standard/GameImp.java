@@ -5,7 +5,9 @@ import framework.*;
 import java.util.List;
 
 
-
+/**
+ * Handels game commands and game world
+ */
 public class GameImp implements Game{
     Snake snake;
 

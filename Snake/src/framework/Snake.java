@@ -50,7 +50,10 @@ public class Snake {
         head = head.getPosition(dir);
         body.add(head);
 
-        if(game.getWorldItems().get(head) == null){
+        if(game.getWorldItems().get(head) == WorldItem.APPLE){
+            //Remove apple from world
+            game.getWorldItems().remove(head);
+        } else if(game.getWorldItems().get(head) == null){
             //Remove tail from body and update tail
             body.remove(tail);
             tail = body.get(body.size() - 1);

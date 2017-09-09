@@ -7,6 +7,7 @@ import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.is;
 
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.*;
 
 /**
@@ -60,6 +61,14 @@ public class GameTest {
         game.moveUp(); //8,10
 
         assertThat(game.getScore(), is(2));
+    }
+
+    @Test
+    public void AppleShouldBeRemovedAfterEating() {
+        game.moveUp(); //9,10
+        game.moveUp(); //8,10 apple
+
+        assertThat(game.getWorldItems().get(new Position(8,10)), is(nullValue()));
     }
 
     @Test

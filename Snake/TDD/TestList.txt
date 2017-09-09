@@ -4,7 +4,7 @@
 [x] Get unit test working
 [] Snake exists in the world
 [x] Snake can move in all directions
-[] Snake cannot go in reverse except reverse
+[x] Snake cannot go in reverse except reverse
 [x] Snake grows in length when eating points
 [x] Apple at (8,10)
 [] No apple at (0,0), (19,19) or (5,15)

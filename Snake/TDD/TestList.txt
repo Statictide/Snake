@@ -5,6 +5,7 @@
 [] Snake exists in the world
 [x] Snake can move in all directions
 [] Snake cannot go in reverse except reverse
-[] Snake grows in length when eating points
-[x] Point at (8,10)
+[x] Snake grows in length when eating points
+[x] Apple at (8,10)
+[] No apple at (0,0), (19,19) or (5,15)
 [x] Handle snake body

@@ -2,6 +2,9 @@ import framework.*;
 import org.junit.Before;
 import org.junit.Test;
 import standard.GameImp;
+
+import java.util.Map;
+
 import static org.hamcrest.CoreMatchers.is;
 
 import static org.junit.Assert.*;
@@ -48,6 +51,14 @@ public class GameTest {
 
     @Test
     public void ShouldBePointAt8_10() {
-        assertThat( game.getPoints().contains(new Position(8,10)), is(true));
+        assertThat( game.getWorldItems().get(new Position(8,10)), is(WorldItem.APPLE));
+    }
+
+    @Test
+    public void SnakeShouldGrowUponEatingPoint() {
+        game.moveUp(); //9,10
+        game.moveUp(); //8,10
+
+        assertThat(game.getScore(), is(2));
     }
 }

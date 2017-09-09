@@ -1,8 +1,6 @@
 package framework;
 
-import javafx.geometry.Pos;
-
-import java.util.List;
+import java.util.Map;
 
 public interface Game {
 
@@ -40,7 +38,13 @@ public interface Game {
      * Returns the positions of all points
      * @return List of positions
      */
-    List<Position> getPoints();
+    Map<Position, WorldItem> getWorldItems();
+
+    /**
+     * Returns the length of the snake
+     * @return positive integer
+     */
+    int getScore();
 
     /**
      * Prints the game world into the terminal

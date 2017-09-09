@@ -2,8 +2,8 @@ package standard;
 
 import framework.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -11,20 +11,21 @@ import java.util.List;
  */
 public class GameImp implements Game {
     Snake snake;
-    List<Position> points;
+    Map<Position, WorldItem> worldItems;
 
     public GameImp(Position snakeHeadPosition) {
-        this.snake = new Snake(snakeHeadPosition, Direction.UP);
-        points = new ArrayList<>();
+        worldItems = new HashMap<>();
+        this.snake = new Snake(snakeHeadPosition, Direction.UP, this);
 
         initGameWorld();
     }
 
     /**
-     * Adds initial points to game world
+     * Adds initial worldItems to game world
      */
-    private void initGameWorld(){
-        points.add(new Position(8, 10));
+    private void initGameWorld() {
+        //Add initial worldItems
+        worldItems.put(new Position(8, 10), WorldItem.APPLE);
     }
 
     @Override
@@ -57,8 +58,13 @@ public class GameImp implements Game {
     }
 
     @Override
-    public List<Position> getPoints() {
-        return points;
+    public Map<Position, WorldItem> getWorldItems() {
+        return worldItems;
+    }
+
+    @Override
+    public int getScore() {
+        return snake.getBody().size();
     }
 
     @Override

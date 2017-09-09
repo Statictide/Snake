@@ -57,4 +57,9 @@ public class Position {
     public String toString() {
         return "(" + row + "," + col + ")";
     }
+
+    @Override
+    public int hashCode() {
+        return row * GameConstants.WORLD_SIZE + col;
+    }
 }

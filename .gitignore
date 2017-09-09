@@ -9,3 +9,4 @@
 # IntelliJ
 out/
 **/.idea/uiDesigner.xml
+Snake/.idea/kotlinc.xml

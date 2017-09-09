@@ -1,4 +1,9 @@
 Game World: A 20x20 grid
-Snake can move up, down, left, right. If a point is scored by reaching the dot, the snake grows 1 in length.
+
+Snake can move up, down, left, right. If a point is scored by reaching a dot, the snake grows in length.
+
 Snake can move through walls, and appear from the opposite wall
+
 Game ends if snake eats its own tail, or becomes so long that it fills every square
+
+Game can be controlled from, and printed to, the console

@@ -7,39 +7,39 @@ import java.util.List;
 
 
 public class GameImp implements Game{
-    Position snakeHeadPosition;
+    Snake snake;
 
     public GameImp(Position snakeHeadPosition) {
-        this.snakeHeadPosition = snakeHeadPosition;
+        this.snake = new Snake(snakeHeadPosition, Direction.UP);
     }
 
     @Override
     public boolean moveUp() {
-        snakeHeadPosition = snakeHeadPosition.getPosition(Direction.UP);
+        snake.move(Direction.UP);
         return true;
     }
 
     @Override
     public boolean moveDown() {
-        snakeHeadPosition = snakeHeadPosition.getPosition(Direction.DOWN);
+        snake.move(Direction.DOWN);
         return true;
     }
 
     @Override
     public boolean moveLeft() {
-        snakeHeadPosition = snakeHeadPosition.getPosition(Direction.LEFT);
+        snake.move(Direction.LEFT);
         return true;
     }
 
     @Override
     public boolean moveRight() {
-        snakeHeadPosition = snakeHeadPosition.getPosition(Direction.RIGHT);
+        snake.move(Direction.RIGHT);
         return true;
     }
 
     @Override
     public Position getPosition() {
-        return snakeHeadPosition;
+        return snake.getHead();
     }
 
     @Override

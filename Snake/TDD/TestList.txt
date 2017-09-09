@@ -6,4 +6,4 @@
 [x] Snake can move in all directions
 [] Snake cannot go in reverse except reverse
 [] Snake grows in length when eating points
-[]
+[x] Handle snake body

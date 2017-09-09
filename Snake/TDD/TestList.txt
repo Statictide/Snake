@@ -1,4 +1,4 @@
 [] snake head exists at (10,10)
 [] World is a 16x16 grid
-[] Get unit test working
+[x] Get unit test working
 [] Snake can move in all directions, except reverse

@@ -45,4 +45,9 @@ public class GameTest {
         assertThat( game.moveLeft(), is(true));
         assertThat(game.getPosition(), is(new Position(10,10)));
     }
+
+    @Test
+    public void ShouldBePointAt8_10() {
+        assertThat( game.getPoints().contains(new Position(8,10)), is(true));
+    }
 }

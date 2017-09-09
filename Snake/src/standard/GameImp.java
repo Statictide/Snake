@@ -2,17 +2,29 @@ package standard;
 
 import framework.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 /**
  * Handels game commands and game world
  */
-public class GameImp implements Game{
+public class GameImp implements Game {
     Snake snake;
+    List<Position> points;
 
     public GameImp(Position snakeHeadPosition) {
         this.snake = new Snake(snakeHeadPosition, Direction.UP);
+        points = new ArrayList<>();
+
+        initGameWorld();
+    }
+
+    /**
+     * Adds initial points to game world
+     */
+    private void initGameWorld(){
+        points.add(new Position(8, 10));
     }
 
     @Override
@@ -46,7 +58,7 @@ public class GameImp implements Game{
 
     @Override
     public List<Position> getPoints() {
-        return null;
+        return points;
     }
 
     @Override

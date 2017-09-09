@@ -61,4 +61,16 @@ public class GameTest {
 
         assertThat(game.getScore(), is(2));
     }
+
+    @Test
+    public void SnakeShouldNotReverseDirection() {
+        game.moveUp();
+        assertThat( game.moveDown(), is(false));
+        assertThat(game.getPosition(), is(new Position(9,10)));
+
+        game.moveLeft();
+        assertThat( game.moveRight(), is(false));
+        assertThat(game.getPosition(), is(new Position(9,9)));
+
+    }
 }

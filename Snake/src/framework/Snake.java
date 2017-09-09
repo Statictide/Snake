@@ -41,8 +41,12 @@ public class Snake {
      * Moves the snake is the specified direction, and grows in length.
      * @param dir Direction of movement
      */
-    public void move(Direction dir) {
+    public boolean move(Direction dir) {
+        //Reversing direction is illegal
+        if(direction.getReverse() == dir) return false;
+
         //Move snake forward
+        direction = dir;
         head = head.getPosition(dir);
         body.add(head);
 
@@ -51,5 +55,7 @@ public class Snake {
             body.remove(tail);
             tail = body.get(body.size() - 1);
         }
+
+        return true;
     }
 }

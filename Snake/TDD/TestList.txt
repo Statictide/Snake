@@ -1,11 +1,12 @@
 [x] snake head exists at (10,10)
 [x] GameImp.getPosition stores Position
-[] World is a 20x20 grid
+[x] World is a 20x20 grid
 [x] Get unit test working
-[] Snake exists in the world
+[x] Snake exists in the world
 [x] Snake can move in all directions
 [x] Snake cannot go in reverse except reverse
 [x] Snake grows in length when eating points
 [x] Apple at (8,10)
 [] No apple at (0,0), (19,19) or (5,15)
 [x] Handle snake body
+[] Snake can hit wall

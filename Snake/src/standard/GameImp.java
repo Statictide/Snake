@@ -15,22 +15,26 @@ public class GameImp implements Game{
 
     @Override
     public boolean moveUp() {
-        return false;
+        snakeHeadPosition = snakeHeadPosition.getPosition(Direction.UP);
+        return true;
     }
 
     @Override
     public boolean moveDown() {
-        return false;
+        snakeHeadPosition = snakeHeadPosition.getPosition(Direction.DOWN);
+        return true;
     }
 
     @Override
     public boolean moveLeft() {
-        return false;
+        snakeHeadPosition = snakeHeadPosition.getPosition(Direction.LEFT);
+        return true;
     }
 
     @Override
     public boolean moveRight() {
-        return false;
+        snakeHeadPosition = snakeHeadPosition.getPosition(Direction.RIGHT);
+        return true;
     }
 
     @Override

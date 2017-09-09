@@ -26,4 +26,23 @@ public class GameTest {
     public void SnakeIsAt10_10() {
         assertThat(game.getPosition(), is(new Position(10,10)));
     }
+
+    @Test
+    public void SnakeCanMoveInAllDirections() {
+        //Up
+        assertThat( game.moveUp(), is(true));
+        assertThat(game.getPosition(), is(new Position(9,10)));
+
+        //Right
+        assertThat( game.moveRight(), is(true));
+        assertThat(game.getPosition(), is(new Position(9,11)));
+
+        //Down
+        assertThat( game.moveDown(), is(true));
+        assertThat(game.getPosition(), is(new Position(10,11)));
+
+        //Left and back to the center
+        assertThat( game.moveLeft(), is(true));
+        assertThat(game.getPosition(), is(new Position(10,10)));
+    }
 }

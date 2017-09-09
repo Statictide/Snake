@@ -11,12 +11,36 @@ public class Position {
         this.col = col;
     }
 
-    int getRow() {
+    public int getRow() {
         return row;
     }
 
-    int getColumn() {
+    public int getColumn() {
         return col;
+    }
+
+    /**
+     * Returns the position in the specified direction
+     * @param dir direction of the desired position
+     * @return position in the desired direction
+     */
+    public Position getPosition(Direction dir) {
+        Position result = null;
+        switch (dir) {
+            case UP:
+                result = new Position(row - 1, col);
+                break;
+            case DOWN:
+                result = new Position(row + 1, col);
+                break;
+            case LEFT:
+                result = new Position(row, col - 1);
+                break;
+            case RIGHT:
+                result = new Position(row, col + 1);
+                break;
+        }
+        return result;
     }
 
     @Override

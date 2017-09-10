@@ -10,3 +10,4 @@
 [] No apple at (0,0), (19,19) or (5,15)
 [x] Handle snake body
 [] Snake can hit wall
+[x] Take user input

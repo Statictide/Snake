@@ -26,6 +26,8 @@ public class GameImp implements Game {
     private void initGameWorld() {
         //Add initial worldItems
         worldItems.put(new Position(8, 10), WorldItem.APPLE);
+        worldItems.put(new Position(8, 12), WorldItem.APPLE);
+        worldItems.put(new Position(8, 14), WorldItem.APPLE);
     }
 
     @Override
@@ -65,6 +67,37 @@ public class GameImp implements Game {
 
     @Override
     public void print() {
+        StringBuilder result = new StringBuilder();
 
+        for (int i = 0; i < GameConstants.WORLD_SIZE + 2; i++) {
+            result.append("W ");
+        }
+        result.append('\n');
+
+        for (int row = 0; row < GameConstants.WORLD_SIZE; row++) {
+            result.append("W ");
+            for (int col = 0; col < GameConstants.WORLD_SIZE; col++) {
+                Position position = new Position(row, col);
+
+                if(snake.getHead().equals(position)){
+                    result.append("H ");
+                } else if (snake.getBody().contains(position)) {
+                    result.append("B ");
+                } else if (worldItems.get(position) == null) {
+                    result.append("  ");
+                } else if (worldItems.get(position) == WorldItem.APPLE) {
+                    result.append("A ");
+                }
+            }
+            result.append("W \n");
+        }
+
+
+        for (int i = 0; i < GameConstants.WORLD_SIZE + 2; i++) {
+            result.append("W ");
+        }
+        result.append('\n');
+
+        System.out.println(result.toString());
     }
 }

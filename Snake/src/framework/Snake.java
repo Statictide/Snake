@@ -1,7 +1,9 @@
 package framework;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * Handels position and movement of head, tail and body of snake
@@ -9,7 +11,7 @@ import java.util.List;
 public class Snake {
     Position head;
     Position tail;
-    List<Position> body;
+    Queue<Position> body;
     Direction direction;
     Game game;
 
@@ -22,7 +24,7 @@ public class Snake {
     public Snake(Position head, Direction direction, Game game) {
         this.head = head;
         this.tail = head;
-        this.body = new ArrayList<>();
+        this.body = new LinkedList<>();
         this.body.add(head);
 
         this.direction = direction;
@@ -33,7 +35,7 @@ public class Snake {
         return head;
     }
 
-    public List<Position> getBody() {
+    public Queue<Position> getBody() {
         return body;
     }
 
@@ -56,7 +58,7 @@ public class Snake {
         } else if(game.getWorldItems().get(head) == null){
             //Remove tail from body and update tail
             body.remove(tail);
-            tail = body.get(body.size() - 1);
+            tail = body.element();
         }
 
         return true;

@@ -11,4 +11,4 @@
 [x] Handle snake body
 [] Snake can hit wall
 [x] Take user input
-[] Graphics
+[x] Graphics

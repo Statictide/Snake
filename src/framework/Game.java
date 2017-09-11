@@ -34,6 +34,6 @@ public interface Game {
     /**
      * Prints the game world into the terminal
      */
-    void print();
+    //void print();
 
 }

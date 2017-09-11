@@ -68,6 +68,7 @@ public class GameImp implements Game {
         return snake.getBody().size();
     }
 
+    /* Redundant
     @Override
     public void print() {
         StringBuilder result = new StringBuilder();
@@ -103,4 +104,5 @@ public class GameImp implements Game {
 
         System.out.println(result.toString());
     }
+    */
 }

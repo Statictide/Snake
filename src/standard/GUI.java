@@ -69,10 +69,6 @@ public class GUI extends JPanel implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
         repaint();
 
         switch (e.getKeyCode()) {
@@ -95,8 +91,10 @@ public class GUI extends JPanel implements KeyListener {
             default:
                 //Do nothing
         }
+    }
 
-        game.print();
+    @Override
+    public void keyReleased(KeyEvent e) {
 
     }
 

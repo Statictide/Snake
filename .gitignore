@@ -11,3 +11,5 @@
 
 # IntelliJ
 out/
+Snake/.idea/compiler.xml
+Snake/Coverage/

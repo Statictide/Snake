@@ -5,9 +5,7 @@ import framework.Game;
 import framework.Position;
 import framework.WorldItem;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 /**
@@ -51,17 +49,17 @@ public class Snake {
      */
     public boolean move(Direction dir) {
         //Reversing direction is illegal
-        if(direction.getReverse() == dir) return false;
+        if (direction.getReverse() == dir) return false;
 
         //Move snake forward
         direction = dir;
         head = head.getPosition(dir);
         body.add(head);
 
-        if(game.getWorldItems().get(head) == WorldItem.APPLE){
+        if (game.getWorldItems().get(head) == WorldItem.APPLE) {
             //Remove apple from world
             game.getWorldItems().remove(head);
-        } else if(game.getWorldItems().get(head) == null){
+        } else if (game.getWorldItems().get(head) == null) {
             //Remove tail from body and update tail
             body.remove(tail);
             tail = body.element();

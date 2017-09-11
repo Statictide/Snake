@@ -3,22 +3,19 @@ import org.junit.Before;
 import org.junit.Test;
 import standard.GameImp;
 
-import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.is;
 
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.*;
 
-/**
- * Created by markn on 09-09-2017.
- */
+
 public class GameTest {
     Game game;
 
     @Before
     public void setUp() throws Exception {
-        game = new GameImp(new Position(10,10));
+        game = new GameImp(new Position(10, 10));
     }
 
     @Test
@@ -28,31 +25,31 @@ public class GameTest {
 
     @Test
     public void SnakeIsAt10_10() {
-        assertThat(game.getPosition(), is(new Position(10,10)));
+        assertThat(game.getPosition(), is(new Position(10, 10)));
     }
 
     @Test
     public void SnakeCanMoveInAllDirections() {
         //Up
-        assertThat( game.moveSnake(Direction.UP), is(true));
-        assertThat(game.getPosition(), is(new Position(9,10)));
+        assertThat(game.moveSnake(Direction.UP), is(true));
+        assertThat(game.getPosition(), is(new Position(9, 10)));
 
         //Right
-        assertThat( game.moveSnake(Direction.RIGHT), is(true));
-        assertThat(game.getPosition(), is(new Position(9,11)));
+        assertThat(game.moveSnake(Direction.RIGHT), is(true));
+        assertThat(game.getPosition(), is(new Position(9, 11)));
 
         //Down
-        assertThat( game.moveSnake(Direction.DOWN), is(true));
-        assertThat(game.getPosition(), is(new Position(10,11)));
+        assertThat(game.moveSnake(Direction.DOWN), is(true));
+        assertThat(game.getPosition(), is(new Position(10, 11)));
 
         //Left and back to the center
-        assertThat( game.moveSnake(Direction.LEFT), is(true));
-        assertThat(game.getPosition(), is(new Position(10,10)));
+        assertThat(game.moveSnake(Direction.LEFT), is(true));
+        assertThat(game.getPosition(), is(new Position(10, 10)));
     }
 
     @Test
     public void ShouldBePointAt8_10() {
-        assertThat( game.getWorldItems().get(new Position(8,10)), is(WorldItem.APPLE));
+        assertThat(game.getWorldItems().get(new Position(8, 10)), is(WorldItem.APPLE));
     }
 
     @Test
@@ -68,19 +65,19 @@ public class GameTest {
         game.moveSnake(Direction.UP); //9,10
         game.moveSnake(Direction.UP); //8,10 apple
 
-        assertThat(game.getWorldItems().get(new Position(8,10)), is(nullValue()));
+        assertThat(game.getWorldItems().get(new Position(8, 10)), is(nullValue()));
     }
 
     @Test
     public void SnakeShouldNotReverseDirection() {
         game.moveSnake(Direction.UP);
-        assertThat( game.moveSnake(Direction.DOWN), is(false));
-        assertThat(game.getPosition(), is(new Position(9,10)));
+        assertThat(game.moveSnake(Direction.DOWN), is(false));
+        assertThat(game.getPosition(), is(new Position(9, 10)));
 
         game.moveSnake(Direction.LEFT);
 
-        assertThat( game.moveSnake(Direction.RIGHT), is(false));
-        assertThat(game.getPosition(), is(new Position(9,9)));
+        assertThat(game.moveSnake(Direction.RIGHT), is(false));
+        assertThat(game.getPosition(), is(new Position(9, 9)));
 
     }
 }

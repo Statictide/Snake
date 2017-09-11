@@ -45,20 +45,23 @@ public class GUI extends JPanel implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        c = e.getKeyChar();
         repaint();
 
-        switch (Character.toLowerCase(c)){
-            case 'w':
-                game.moveUp();
+        switch (e.getKeyCode()){
+            case KeyEvent.VK_W:
+            case KeyEvent.VK_UP:
+	            game.moveUp();
                 break;
-            case 's':
+            case KeyEvent.VK_S:
+            case KeyEvent.VK_DOWN:
                 game.moveDown();
                 break;
-            case 'a':
+            case KeyEvent.VK_A:
+            case KeyEvent.VK_LEFT:
                 game.moveLeft();
                 break;
-            case 'd':
+            case KeyEvent.VK_D:
+            case KeyEvent.VK_RIGHT:
                 game.moveRight();
                 break;
             default:

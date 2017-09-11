@@ -25,9 +25,16 @@ public class GameImp implements Game {
      */
     private void initGameWorld() {
         //Add initial worldItems
-        worldItems.put(new Position(8, 10), WorldItem.APPLE);
-        worldItems.put(new Position(8, 12), WorldItem.APPLE);
-        worldItems.put(new Position(8, 14), WorldItem.APPLE);
+	    worldItems.put(new Position(8, 10), WorldItem.APPLE);
+	    worldItems.put(new Position(8, 12), WorldItem.APPLE);
+	    worldItems.put(new Position(1, 5), WorldItem.APPLE);
+	    worldItems.put(new Position(2, 10), WorldItem.APPLE);
+	    worldItems.put(new Position(3, 14), WorldItem.APPLE);
+	    worldItems.put(new Position(4, 3), WorldItem.APPLE);
+	    worldItems.put(new Position(5, 18), WorldItem.APPLE);
+	    worldItems.put(new Position(6, 7), WorldItem.APPLE);
+	    worldItems.put(new Position(7, 12), WorldItem.APPLE);
+	    worldItems.put(new Position(8, 19), WorldItem.APPLE);
     }
 
     @Override

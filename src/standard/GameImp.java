@@ -30,10 +30,17 @@ public class GameImp implements Game {
 	    worldItems.put(new Position(8, 12), WorldItem.APPLE);
 	    worldItems.put(new Position(1, 5), WorldItem.APPLE);
 	    worldItems.put(new Position(2, 10), WorldItem.APPLE);
-	    worldItems.put(new Position(3, 14), WorldItem.APPLE);
+	    worldItems.put(new Position(2, 10), WorldItem.APPLE);
+	    worldItems.put(new Position(5, 10), WorldItem.APPLE);
+	    worldItems.put(new Position(6, 4), WorldItem.APPLE);
+	    worldItems.put(new Position(7, 6), WorldItem.APPLE);
+	    worldItems.put(new Position(8, 10), WorldItem.APPLE);
 	    worldItems.put(new Position(4, 3), WorldItem.APPLE);
 	    worldItems.put(new Position(5, 18), WorldItem.APPLE);
 	    worldItems.put(new Position(6, 7), WorldItem.APPLE);
+	    worldItems.put(new Position(11, 7), WorldItem.APPLE);
+	    worldItems.put(new Position(12, 9), WorldItem.APPLE);
+	    worldItems.put(new Position(13, 5), WorldItem.APPLE);
 	    worldItems.put(new Position(7, 12), WorldItem.APPLE);
 	    worldItems.put(new Position(8, 19), WorldItem.APPLE);
 	    worldItems.put(new Position(9, 15), WorldItem.APPLE);

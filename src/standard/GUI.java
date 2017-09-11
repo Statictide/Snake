@@ -33,7 +33,8 @@ public class GUI extends JPanel implements KeyListener {
 
         if (game.getStatus() != Game.Status.PLAYING) {
             String msg = game.getStatus().name();
-            g.drawString(msg, getHeight() / 2, (getWidth() - g.getFontMetrics().stringWidth(msg)));
+            g.setFont(new Font("TimesRoman", Font.BOLD, 50));
+            g.drawString(msg, (getWidth() - g.getFontMetrics().stringWidth(msg)) / 2, (getHeight() + g.getFontMetrics().getHeight()) / 2);
         }
 
         //Draw border

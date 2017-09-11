@@ -31,8 +31,13 @@ public class GUI extends JPanel implements KeyListener {
     public void paintComponent(Graphics g) {
         g.clearRect(0, 0, this.getWidth(), this.getHeight());
 
+        if (game.getStatus() != Game.Status.PLAYING) {
+            String msg = game.getStatus().name();
+            g.drawString(msg, getHeight() / 2, (getWidth() - g.getFontMetrics().stringWidth(msg)));
+        }
+
         //Draw border
-        g.drawRect(1,1, Math.min(getWidth(), getHeight()) - 2, Math.min(getWidth(), getHeight()) - 2);
+        g.drawRect(1, 1, Math.min(getWidth(), getHeight()) - 2, Math.min(getWidth(), getHeight()) - 2);
 
         //Calculate width of each cell;
         int delta = Math.min(this.getWidth(), this.getHeight()) / GameConstants.WORLD_SIZE;
@@ -46,7 +51,7 @@ public class GUI extends JPanel implements KeyListener {
         }
 
         //Draw snake body
-        for (Position p : game.getSnake().body) {
+        for (Position p : game.getSnake().getHeadlessBody()) {
             addCell(g, Color.BLUE, p, delta);
         }
 
@@ -56,7 +61,7 @@ public class GUI extends JPanel implements KeyListener {
 
     }
 
-    private void addCell(Graphics g, Color color, Position p, int delta){
+    private void addCell(Graphics g, Color color, Position p, int delta) {
         g.setColor(color);
         g.fillRect(p.getColumn() * delta, p.getRow() * delta, delta, delta);
     }
@@ -69,6 +74,8 @@ public class GUI extends JPanel implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        //Only take input while game is playing
+        if (game.getStatus() != Game.Status.PLAYING) return;
         repaint();
 
         switch (e.getKeyCode()) {

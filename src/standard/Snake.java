@@ -9,14 +9,14 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Handels position and movement of head, tail and body of snake
+ * Handels position and movement of head, tail and headlessBody of snake
  */
 public class Snake {
-    Position head;
-    Position tail;
-    Queue<Position> body;
-    Direction direction;
-    Game game;
+    private Position head;
+    private Position tail;
+    private Queue<Position> headlessBody;
+    private Direction direction;
+    private Game game;
 
 
     /**
@@ -27,8 +27,7 @@ public class Snake {
     public Snake(Position head, Direction direction, Game game) {
         this.head = head;
         this.tail = head;
-        this.body = new LinkedList<>();
-        this.body.add(head);
+        this.headlessBody = new LinkedList<>();
 
         this.direction = direction;
         this.game = game;
@@ -40,9 +39,8 @@ public class Snake {
     public Position getTail() {
         return tail;
     }
-
-    public Queue<Position> getBody() {
-        return body;
+    public Queue<Position> getHeadlessBody() {
+        return headlessBody;
     }
 
     /**
@@ -56,18 +54,31 @@ public class Snake {
 
         //Move snake forward
         direction = dir;
+        headlessBody.add(head);
         head = head.getPosition(dir);
-        body.add(head);
 
         if (game.getWorldItems().get(head) == WorldItem.APPLE) {
-            //Remove apple from world
+            //Remove apple from world when eaten
             game.getWorldItems().remove(head);
         } else if (game.getWorldItems().get(head) == null) {
-            //Remove tail from body and update tail
-            body.remove(tail);
-            tail = body.element();
+            //Remove tail from headlessBody
+            headlessBody.remove();
         }
 
         return true;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        for (Position p : headlessBody) {
+            result.append(p.toString());
+            result.append(", ");
+        }
+        //Remove trailing ", "
+        result.reverse();
+        result.reverse();
+
+        return result.toString();
     }
 }

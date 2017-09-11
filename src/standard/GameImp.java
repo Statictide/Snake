@@ -4,6 +4,7 @@ import framework.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Queue;
 
 
 /**
@@ -65,11 +66,18 @@ public class GameImp implements Game {
 
     @Override
     public int getScore() {
-        return snake.getBody().size();
+        return snake.getHeadlessBody().size();
     }
 
     @Override
     public Status getStatus() {
+        //Handle hitting wall
+        if(!snake.getHead().isValid()) return Status.DEFEAT;
+
+        //If headlessBody contains the head position, the snake has hit itself
+        if(snake.getHeadlessBody().contains(snake.getHead())) return Status.DEFEAT;
+
+
         return Status.PLAYING;
     }
 
@@ -90,7 +98,7 @@ public class GameImp implements Game {
 
                 if(snake.getHead().equals(position)){
                     result.append("H ");
-                } else if (snake.getBody().contains(position)) {
+                } else if (snake.getHeadlessBody().contains(position)) {
                     result.append("B ");
                 } else if (worldItems.get(position) == null) {
                     result.append("  ");

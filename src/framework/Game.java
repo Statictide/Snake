@@ -30,8 +30,7 @@ public interface Game {
 
 
     /**
-     * Returns the length of the snake
-     *
+     * Returns the amount of apples eaten
      * @return positive integer
      */
     int getScore();

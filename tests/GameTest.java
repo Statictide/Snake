@@ -57,7 +57,7 @@ public class GameTest {
         game.moveSnake(Direction.UP); //9,10
         game.moveSnake(Direction.UP); //8,10
 
-        assertThat(game.getScore(), is(2));
+        assertThat(game.getScore(), is(1));
     }
 
     @Test
@@ -87,5 +87,37 @@ public class GameTest {
         assertThat(game.getStatus(), is(Game.Status.PLAYING));
         game.moveSnake(Direction.UP);
         assertThat(game.getStatus(), is(Game.Status.PLAYING));
+    }
+
+    @Test
+    public void shouldReturnDefeatIfSnakeHitsWall() {
+        //Move up, out of map
+        while (game.getSnake().getHead().getRow() >= 0){
+            game.moveSnake(Direction.UP);
+        }
+
+        assertThat(game.getStatus(), is(Game.Status.DEFEAT));
+    }
+
+    @Test
+    public void shouldReturnDefeatIfSnakeHitsBody() {
+        game.moveSnake(Direction.UP);
+        game.moveSnake(Direction.UP);//APPLE 1
+        game.moveSnake(Direction.RIGHT);
+        game.moveSnake(Direction.RIGHT);//APPLE 2
+        game.moveSnake(Direction.UP);//APPLE 3
+        game.moveSnake(Direction.RIGHT);
+        game.moveSnake(Direction.RIGHT);
+        game.moveSnake(Direction.RIGHT);
+        game.moveSnake(Direction.DOWN);
+        game.moveSnake(Direction.DOWN);//APPLE 4
+
+        //Snake has length 4+1=5, and can hit itself. Go in an cirkle
+        game.moveSnake(Direction.LEFT);
+        game.moveSnake(Direction.UP);
+        game.moveSnake(Direction.RIGHT);
+        assertThat(game.getStatus(), is(Game.Status.DEFEAT));
+
+
     }
 }

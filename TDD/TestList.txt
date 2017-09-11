@@ -9,7 +9,7 @@
 [x] Apple at (8,10)
 [] No apple at (0,0), (19,19) or (5,15)
 [x] Handle snake body
-[] Snake can hit wall
-[] Snake can hit body
+[x] Snake can hit wall
+[x] Snake can hit body
 [x] Take user input
 [x] Graphics

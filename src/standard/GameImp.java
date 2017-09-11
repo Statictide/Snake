@@ -68,6 +68,11 @@ public class GameImp implements Game {
         return snake.getBody().size();
     }
 
+    @Override
+    public Status getStatus() {
+        return Status.PLAYING;
+    }
+
     /* Redundant
     @Override
     public void print() {

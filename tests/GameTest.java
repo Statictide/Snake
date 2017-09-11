@@ -80,4 +80,12 @@ public class GameTest {
         assertThat(game.getSnake().getHead(), is(new Position(9, 9)));
 
     }
+
+
+    @Test
+    public void statusShouldBePlayingWhenPlaying() {
+        assertThat(game.getStatus(), is(Game.Status.PLAYING));
+        game.moveSnake(Direction.UP);
+        assertThat(game.getStatus(), is(Game.Status.PLAYING));
+    }
 }

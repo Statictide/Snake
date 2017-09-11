@@ -8,6 +8,7 @@ public interface Game {
 
     /**
      * Moves the snake in the specified direction
+     *
      * @param dir
      * @return
      */
@@ -15,21 +16,29 @@ public interface Game {
 
     /**
      * Returns the snake's head's position
+     *
      * @return Position object containing the head's position
      */
     Snake getSnake();
 
     /**
      * Returns the positions of all points
+     *
      * @return List of positions
      */
     Map<Position, WorldItem> getWorldItems();
 
+
     /**
      * Returns the length of the snake
+     *
      * @return positive integer
      */
     int getScore();
+
+    public Status getStatus();
+    public enum Status {PLAYING, DEFEAT, WICTORY}
+
 
     /**
      * Prints the game world into the terminal

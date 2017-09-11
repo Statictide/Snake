@@ -10,8 +10,8 @@ import java.util.Map;
  * Handels game commands and game world
  */
 public class GameImp implements Game {
-    Snake snake;
-    Map<Position, WorldItem> worldItems;
+    private Snake snake;
+    private Map<Position, WorldItem> worldItems;
 
     public GameImp(Position snakeHeadPosition) {
         worldItems = new HashMap<>();
@@ -35,26 +35,22 @@ public class GameImp implements Game {
 	    worldItems.put(new Position(6, 7), WorldItem.APPLE);
 	    worldItems.put(new Position(7, 12), WorldItem.APPLE);
 	    worldItems.put(new Position(8, 19), WorldItem.APPLE);
+	    worldItems.put(new Position(9, 15), WorldItem.APPLE);
+	    worldItems.put(new Position(10, 3), WorldItem.APPLE);
+	    worldItems.put(new Position(11, 19), WorldItem.APPLE);
+	    worldItems.put(new Position(12, 1), WorldItem.APPLE);
+	    worldItems.put(new Position(13, 4), WorldItem.APPLE);
+	    worldItems.put(new Position(14, 16), WorldItem.APPLE);
+	    worldItems.put(new Position(15, 5), WorldItem.APPLE);
+	    worldItems.put(new Position(16, 13), WorldItem.APPLE);
+	    worldItems.put(new Position(17, 6), WorldItem.APPLE);
+	    worldItems.put(new Position(18, 2), WorldItem.APPLE);
+	    worldItems.put(new Position(19, 17), WorldItem.APPLE);
     }
 
     @Override
-    public boolean moveUp() {
-        return snake.move(Direction.UP);
-    }
-
-    @Override
-    public boolean moveDown() {
-        return snake.move(Direction.DOWN);
-    }
-
-    @Override
-    public boolean moveLeft() {
-        return snake.move(Direction.LEFT);
-    }
-
-    @Override
-    public boolean moveRight() {
-        return snake.move(Direction.RIGHT);
+    public boolean moveSnake(Direction dir) {
+        return snake.move(dir);
     }
 
     @Override

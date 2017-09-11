@@ -5,28 +5,11 @@ import java.util.Map;
 public interface Game {
 
     /**
-     * Moves the snake's head one step if possible
-     * @return true if position is not occupied
+     * Moves the snake in the specified direction
+     * @param dir
+     * @return
      */
-    boolean moveUp();
-
-    /**
-     * Moves the snake's head one step if possible
-     * @return true if position is not occupied
-     */
-    boolean moveDown();
-
-    /**
-     * Moves the snake's head one step up if possible
-     * @return true if position is not occupied
-     */
-    boolean moveLeft();
-
-    /**
-     * Moves the snake's head one step up if possible
-     * @return true if position is not occupied
-     */
-    boolean moveRight();
+    boolean moveSnake(Direction dir);
 
     /**
      * Returns the snake's head's position

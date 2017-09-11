@@ -34,19 +34,19 @@ public class GameTest {
     @Test
     public void SnakeCanMoveInAllDirections() {
         //Up
-        assertThat( game.moveUp(), is(true));
+        assertThat( game.moveSnake(Direction.UP), is(true));
         assertThat(game.getPosition(), is(new Position(9,10)));
 
         //Right
-        assertThat( game.moveRight(), is(true));
+        assertThat( game.moveSnake(Direction.RIGHT), is(true));
         assertThat(game.getPosition(), is(new Position(9,11)));
 
         //Down
-        assertThat( game.moveDown(), is(true));
+        assertThat( game.moveSnake(Direction.DOWN), is(true));
         assertThat(game.getPosition(), is(new Position(10,11)));
 
         //Left and back to the center
-        assertThat( game.moveLeft(), is(true));
+        assertThat( game.moveSnake(Direction.LEFT), is(true));
         assertThat(game.getPosition(), is(new Position(10,10)));
     }
 
@@ -57,28 +57,29 @@ public class GameTest {
 
     @Test
     public void SnakeShouldGrowUponEatingPoint() {
-        game.moveUp(); //9,10
-        game.moveUp(); //8,10
+        game.moveSnake(Direction.UP); //9,10
+        game.moveSnake(Direction.UP); //8,10
 
         assertThat(game.getScore(), is(2));
     }
 
     @Test
     public void AppleShouldBeRemovedAfterEating() {
-        game.moveUp(); //9,10
-        game.moveUp(); //8,10 apple
+        game.moveSnake(Direction.UP); //9,10
+        game.moveSnake(Direction.UP); //8,10 apple
 
         assertThat(game.getWorldItems().get(new Position(8,10)), is(nullValue()));
     }
 
     @Test
     public void SnakeShouldNotReverseDirection() {
-        game.moveUp();
-        assertThat( game.moveDown(), is(false));
+        game.moveSnake(Direction.UP);
+        assertThat( game.moveSnake(Direction.DOWN), is(false));
         assertThat(game.getPosition(), is(new Position(9,10)));
 
-        game.moveLeft();
-        assertThat( game.moveRight(), is(false));
+        game.moveSnake(Direction.LEFT);
+
+        assertThat( game.moveSnake(Direction.RIGHT), is(false));
         assertThat(game.getPosition(), is(new Position(9,9)));
 
     }

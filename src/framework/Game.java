@@ -1,5 +1,7 @@
 package framework;
 
+import standard.Snake;
+
 import java.util.Map;
 
 public interface Game {
@@ -15,7 +17,7 @@ public interface Game {
      * Returns the snake's head's position
      * @return Position object containing the head's position
      */
-    Position getPosition();
+    Snake getSnake();
 
     /**
      * Returns the positions of all points

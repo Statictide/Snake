@@ -37,6 +37,9 @@ public class Snake {
     public Position getHead() {
         return head;
     }
+    public Position getTail() {
+        return tail;
+    }
 
     public Queue<Position> getBody() {
         return body;

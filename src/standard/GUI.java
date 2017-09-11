@@ -29,19 +29,38 @@ public class GUI extends JPanel implements KeyListener {
     }
 
     public void paintComponent(Graphics g) {
+        g.clearRect(0, 0, this.getWidth(), this.getHeight());
+
+        //Draw border
+        g.drawRect(1,1, Math.min(getWidth(), getHeight()) - 2, Math.min(getWidth(), getHeight()) - 2);
+
         //Calculate width of each cell;
         int delta = Math.min(this.getWidth(), this.getHeight()) / GameConstants.WORLD_SIZE;
 
-        g.clearRect(0, 0, this.getWidth(), this.getHeight());
 
+        //Draw world item cells
         for (Position p : game.getWorldItems().keySet()) {
             if (game.getWorldItems().get(p) == WorldItem.APPLE) {
-                g.setColor(Color.RED);
-                g.fillRect(p.getColumn() * delta, p.getRow() * delta, delta, delta);
+                addCell(g, Color.RED, p, delta);
             }
         }
 
+        //Draw snake body
+        for (Position p : game.getSnake().body) {
+            addCell(g, Color.BLUE, p, delta);
+        }
+
+        //Draw snake head
+        addCell(g, Color.BLACK, game.getSnake().getHead(), delta);
+
+
     }
+
+    private void addCell(Graphics g, Color color, Position p, int delta){
+        g.setColor(color);
+        g.fillRect(p.getColumn() * delta, p.getRow() * delta, delta, delta);
+    }
+
 
     @Override
     public void keyTyped(KeyEvent e) {

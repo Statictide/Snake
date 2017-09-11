@@ -25,26 +25,26 @@ public class GameTest {
 
     @Test
     public void SnakeIsAt10_10() {
-        assertThat(game.getPosition(), is(new Position(10, 10)));
+        assertThat(game.getSnake().getHead(), is(new Position(10, 10)));
     }
 
     @Test
     public void SnakeCanMoveInAllDirections() {
         //Up
         assertThat(game.moveSnake(Direction.UP), is(true));
-        assertThat(game.getPosition(), is(new Position(9, 10)));
+        assertThat(game.getSnake().getHead(), is(new Position(9, 10)));
 
         //Right
         assertThat(game.moveSnake(Direction.RIGHT), is(true));
-        assertThat(game.getPosition(), is(new Position(9, 11)));
+        assertThat(game.getSnake().getHead(), is(new Position(9, 11)));
 
         //Down
         assertThat(game.moveSnake(Direction.DOWN), is(true));
-        assertThat(game.getPosition(), is(new Position(10, 11)));
+        assertThat(game.getSnake().getHead(), is(new Position(10, 11)));
 
         //Left and back to the center
         assertThat(game.moveSnake(Direction.LEFT), is(true));
-        assertThat(game.getPosition(), is(new Position(10, 10)));
+        assertThat(game.getSnake().getHead(), is(new Position(10, 10)));
     }
 
     @Test
@@ -72,12 +72,12 @@ public class GameTest {
     public void SnakeShouldNotReverseDirection() {
         game.moveSnake(Direction.UP);
         assertThat(game.moveSnake(Direction.DOWN), is(false));
-        assertThat(game.getPosition(), is(new Position(9, 10)));
+        assertThat(game.getSnake().getHead(), is(new Position(9, 10)));
 
         game.moveSnake(Direction.LEFT);
 
         assertThat(game.moveSnake(Direction.RIGHT), is(false));
-        assertThat(game.getPosition(), is(new Position(9, 9)));
+        assertThat(game.getSnake().getHead(), is(new Position(9, 9)));
 
     }
 }

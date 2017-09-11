@@ -54,8 +54,8 @@ public class GameImp implements Game {
     }
 
     @Override
-    public Position getPosition() {
-        return snake.getHead();
+    public Snake getSnake() {
+        return snake;
     }
 
     @Override

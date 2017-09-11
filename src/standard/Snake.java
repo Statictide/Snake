@@ -1,4 +1,9 @@
-package framework;
+package standard;
+
+import framework.Direction;
+import framework.Game;
+import framework.Position;
+import framework.WorldItem;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

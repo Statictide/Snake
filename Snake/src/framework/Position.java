@@ -43,6 +43,14 @@ public class Position {
         return result;
     }
 
+    /**
+     * Only position [0, WORLD_SIZE[^2 are vaild
+     * @return true if valid, false othervise
+     */
+    public boolean isValid(){
+        return (0 <= row && row < GameConstants.WORLD_SIZE) && (0 <= col && col < GameConstants.WORLD_SIZE);
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;

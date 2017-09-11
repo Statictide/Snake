@@ -40,8 +40,9 @@ public class Snake {
     }
 
     /**
-     * Moves the snake is the specified direction, and grows in length.
+     * Moves the snake is the specified direction, and grows in length. Cannot reverse direction.
      * @param dir Direction of movement
+     * @return false if reversing direction, true otherwise.
      */
     public boolean move(Direction dir) {
         //Reversing direction is illegal

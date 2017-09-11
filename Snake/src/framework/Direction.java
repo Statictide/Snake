@@ -21,7 +21,7 @@ public enum Direction {
      * Returns the opposite direction
      * @return Opposite direction
      */
-    Direction getReverse(){
+    public Direction getReverse(){
         return reverse;
     }
 }
